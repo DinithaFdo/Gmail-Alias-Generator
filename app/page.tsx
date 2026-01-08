@@ -223,7 +223,7 @@ export default function Home() {
 
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
             Create email aliases to organize, filter, and protect your inbox.
-            All aliases deliver to your Gmail—no forwarding, no setup.
+            All aliases deliver to your Gmail - no forwarding, no setup.
           </p>
 
           <div className="inline-block">
