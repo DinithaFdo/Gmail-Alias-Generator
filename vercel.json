@@ -3,8 +3,5 @@
   "installCommand": "npm install",
   "outputDirectory": ".next",
   "devCommand": "npm run dev",
-  "env": {},
-  "buildEnvironment": {
-    "NODE_VERSION": "20"
-  }
+  "env": {}
 }
