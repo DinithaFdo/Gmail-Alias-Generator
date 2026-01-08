@@ -31,15 +31,15 @@ export function ExportButton({ aliases, email, disabled }: ExportButtonProps) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex-1">
       <Button
         onClick={() => setShowMenu(!showMenu)}
         disabled={disabled}
         className={cn(
-          "relative rounded-full px-6 h-11 font-medium shadow-lg",
-          "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700",
+          "relative w-full rounded-lg h-10 font-medium text-sm",
+          "bg-indigo-600 hover:bg-indigo-700",
           "text-white transition-all duration-300",
-          exported && "from-green-600 to-emerald-600"
+          exported && "bg-green-600 hover:bg-green-700"
         )}
       >
         {exported ? (
@@ -71,7 +71,7 @@ export function ExportButton({ aliases, email, disabled }: ExportButtonProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.15 }}
-              className="absolute bottom-full mb-2 right-0 z-50 bg-card border-2 border-border rounded-2xl shadow-2xl overflow-hidden min-w-[200px]"
+              className="absolute bottom-full mb-2 right-0 z-50 bg-card border border-indigo-500/20 dark:border-indigo-500/30 rounded-lg shadow-2xl overflow-hidden min-w-[220px]"
             >
               <button
                 onClick={() => handleExport("txt")}

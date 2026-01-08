@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     "Gmail aliases, email generator, Gmail tricks, email organization, spam filter, Gmail dot trick, Gmail plus addressing, free email tool, inbox management",
   authors: [{ name: "Dinitha Fernando" }],
   creator: "Dinitha Fernando",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Gmail Alias Generator - Create Email Aliases Instantly",
     description:

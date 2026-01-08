@@ -247,7 +247,7 @@ export default function Home() {
               <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
               {/* Email Input */}
               <div className="space-y-3">
-                <label className="text-sm font-semibold text-foreground">
+                <label className="text-xs sm:text-sm font-semibold text-foreground">
                   Your Gmail Address
                 </label>
 
@@ -258,7 +258,7 @@ export default function Home() {
                     value={email}
                     onChange={(e) => handleEmailChange(e.target.value)}
                     className={cn(
-                      "h-14 text-lg pl-4 rounded-2xl border-2 transition-all duration-200",
+                      "h-11 sm:h-12 text-sm sm:text-base pl-4 rounded-lg border transition-all duration-200",
                       "focus:ring-2 focus:ring-primary/50 focus:border-primary",
                       validation.error && email
                         ? "border-red-500/50 focus:border-red-500"
