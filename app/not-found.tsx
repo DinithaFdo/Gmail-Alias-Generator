@@ -1,62 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 dark:from-background dark:via-background dark:to-muted/10 flex items-center justify-center px-4">
-      {/* Animated background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl opacity-50 animate-pulse animation-delay-2000" />
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden flex flex-col items-center justify-center">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[20%] left-[20%] w-[40%] h-[40%] bg-primary/20 blur-[150px] rounded-full animate-float" />
+        <div className="absolute bottom-[20%] right-[20%] w-[40%] h-[40%] bg-accent/10 blur-[150px] rounded-full animate-float" style={{ animationDelay: "2s" }} />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-md"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-10 text-center px-6"
       >
-        {/* 404 Text with animation */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="mb-8"
-        >
-          <h1 className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent mb-2">
-            404
-          </h1>
-        </motion.div>
+        <div className="font-heading font-black text-[12rem] md:text-[20rem] leading-[0.8] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-primary/20 to-transparent select-none">
+          404
+        </div>
 
-        {/* Message */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Page not found</h2>
-        <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-          Oops! This page seems to have disappeared. Don't worry, we'll help you
-          get back on track.
-        </p>
+        <div className="glass-panel p-8 md:p-12 rounded-2xl max-w-lg mx-auto -mt-12 backdrop-blur-2xl border-white/10 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
 
-        {/* Animated elements */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="flex flex-col gap-4"
-        >
-          <Link href="/" className="w-full">
-            <Button className="w-full h-12 rounded-2xl text-base font-medium bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-700 text-white shadow-lg">
-              Back to Home
-              <ArrowRight className="ml-2 w-4 h-4" />
+          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 relative z-10">
+            SYSTEM_ERROR
+          </h2>
+          <p className="text-muted-foreground font-mono text-sm md:text-base mb-8 relative z-10">
+            The requested trajectory data could not be found.
+            The alias you are looking for has drifted into deep space.
+          </p>
+
+          <Link href="/">
+            <Button className="h-12 px-8 rounded-full bg-primary hover:bg-primary/80 font-mono text-xs tracking-wider group relative z-10">
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+              RETURN TO BASE
             </Button>
           </Link>
-
-          <p className="text-sm text-muted-foreground">
-            Let's generate those Gmail aliases instead 😊
-          </p>
-        </motion.div>
+        </div>
       </motion.div>
+
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)] pointer-events-none" />
     </div>
   );
 }

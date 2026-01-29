@@ -1,41 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-
-  <!-- Background circle -->
-  <circle cx="128" cy="128" r="128" fill="url(#grad1)"/>
-
-  <!-- Main envelope shape -->
-  <g transform="translate(128, 128)">
-    <!-- Envelope body -->
-    <rect x="-48" y="-36" width="96" height="72" rx="6" fill="white" opacity="0.95"/>
-
-    <!-- Envelope flap -->
-    <path d="M -48 -36 L 0 0 L 48 -36" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
-
-    <!-- Inner letter lines (representing aliases) -->
-    <line x1="-40" y1="-20" x2="40" y2="-20" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"/>
-    <line x1="-40" y1="-8" x2="35" y2="-8" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-    <line x1="-40" y1="4" x2="30" y2="4" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-    <line x1="-40" y1="16" x2="40" y2="16" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-
-    <!-- Dots representing aliases/variations (subtle) -->
-    <circle cx="-35" cy="28" r="2" fill="white" opacity="0.6"/>
-    <circle cx="-25" cy="28" r="2" fill="white" opacity="0.6"/>
-    <circle cx="-15" cy="28" r="2" fill="white" opacity="0.6"/>
-    <circle cx="5" cy="28" r="2" fill="white" opacity="0.6"/>
-    <circle cx="15" cy="28" r="2" fill="white" opacity="0.6"/>
-  </g>
-
-  <!-- Subtle glow effect -->
-  <circle cx="128" cy="128" r="128" fill="none" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="120" fill="#6366f1"/>
+  <path d="M256 128C185.3 128 128 185.3 128 256C128 326.7 185.3 384 256 384C284.5 384 310.8 374.8 332.6 359.4L356.1 386.9C328.6 409.8 294 424 256 424C163.2 424 88 348.8 88 256C88 163.2 163.2 88 256 88C348.8 88 424 163.2 424 256V266C424 288.1 406.1 306 384 306C361.9 306 344 288.1 344 266V256C344 207.4 304.6 168 256 168C207.4 168 168 207.4 168 256C168 304.6 207.4 344 256 344C279.6 344 301 334.7 316.3 319.6C323.5 334.1 338.4 344 356 344C382.5 344 404 322.5 404 296V256C404 174.3 337.7 108 256 108V128ZM256 208C282.5 208 304 229.5 304 256C304 282.5 282.5 304 256 304C229.5 304 208 282.5 208 256C208 229.5 229.5 208 256 208Z" fill="white"/>
 </svg>

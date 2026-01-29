@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, FileText, FileSpreadsheet, Check } from "lucide-react";
+import { Download, FileText, FileSpreadsheet, Check, ChevronUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { AliasResult } from "@/lib/alias-generator";
 import { exportAsTxt, exportAsCsv } from "@/lib/export";
+import { cn } from "@/lib/utils";
 
 interface ExportButtonProps {
   aliases: AliasResult[];
@@ -31,26 +32,25 @@ export function ExportButton({ aliases, email, disabled }: ExportButtonProps) {
   };
 
   return (
-    <div className="relative flex-1">
+    <div className="relative">
       <Button
         onClick={() => setShowMenu(!showMenu)}
         disabled={disabled}
+        variant="secondary"
         className={cn(
-          "relative w-full rounded-lg h-10 font-medium text-sm",
-          "bg-indigo-600 hover:bg-indigo-700",
-          "text-white transition-all duration-300",
-          exported && "bg-green-600 hover:bg-green-700"
+          "h-12 px-8 rounded-full border-primary/20 hover:bg-primary/20 font-mono text-xs tracking-wider",
+          exported && "text-green-500 border-green-500/50"
         )}
       >
         {exported ? (
           <>
             <Check className="w-4 h-4 mr-2" />
-            Exported
+            EXPORTED
           </>
         ) : (
           <>
             <Download className="w-4 h-4 mr-2" />
-            Export Aliases
+            EXPORT...
           </>
         )}
       </Button>
@@ -67,39 +67,28 @@ export function ExportButton({ aliases, email, disabled }: ExportButtonProps) {
             />
 
             <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              transition={{ duration: 0.15 }}
-              className="absolute bottom-full mb-2 right-0 z-50 bg-card border border-indigo-500/20 dark:border-indigo-500/30 rounded-lg shadow-2xl overflow-hidden min-w-[220px]"
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 z-50 glass-panel rounded-xl shadow-2xl overflow-hidden min-w-[200px]"
             >
-              <button
-                onClick={() => handleExport("txt")}
-                className="w-full px-4 py-3 flex items-center gap-3 hover:bg-muted/50 transition-colors"
-              >
-                <FileText className="w-4 h-4 text-blue-500" />
-                <div className="text-left">
-                  <div className="text-sm font-medium">Export as TXT</div>
-                  <div className="text-xs text-muted-foreground">
-                    Plain text format
-                  </div>
-                </div>
-              </button>
+              <div className="p-1">
+                <button
+                  onClick={() => handleExport("txt")}
+                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-white/10 rounded-lg transition-colors group"
+                >
+                  <FileText className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <span className="text-xs font-mono tracking-wide">TEXT FILE (.TXT)</span>
+                </button>
 
-              <div className="h-px bg-border" />
-
-              <button
-                onClick={() => handleExport("csv")}
-                className="w-full px-4 py-3 flex items-center gap-3 hover:bg-muted/50 transition-colors"
-              >
-                <FileSpreadsheet className="w-4 h-4 text-green-500" />
-                <div className="text-left">
-                  <div className="text-sm font-medium">Export as CSV</div>
-                  <div className="text-xs text-muted-foreground">
-                    Spreadsheet format
-                  </div>
-                </div>
-              </button>
+                <button
+                  onClick={() => handleExport("csv")}
+                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-white/10 rounded-lg transition-colors group"
+                >
+                  <FileSpreadsheet className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <span className="text-xs font-mono tracking-wide">CSV FILE (.CSV)</span>
+                </button>
+              </div>
             </motion.div>
           </>
         )}
@@ -107,6 +96,3 @@ export function ExportButton({ aliases, email, disabled }: ExportButtonProps) {
     </div>
   );
 }
-
-// Add cn utility import
-import { cn } from "@/lib/utils";

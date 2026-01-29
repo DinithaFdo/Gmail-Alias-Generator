@@ -1,39 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Gmail Alias Generator - Create Unlimited Email Aliases Instantly",
+  title: "Gmail Alias // GEN",
   description:
-    "Generate unlimited Gmail aliases instantly to organize, filter, track spam, and protect your inbox. Free email alias generator with advanced features. Create dot aliases (john.smith@gmail.com) and plus aliases (john+tag@gmail.com) in seconds.",
+    "Organize. Filter. Protect. The next-gen Gmail alias generator.",
   keywords:
-    "Gmail aliases, email generator, Gmail tricks, email organization, spam filter, Gmail dot trick, Gmail plus addressing, free email tool, inbox management",
+    "Gmail aliases, email generator, privacy, security, email organization",
   authors: [{ name: "Dinitha Fernando" }],
   creator: "Dinitha Fernando",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
-  },
-  openGraph: {
-    title: "Gmail Alias Generator - Create Email Aliases Instantly",
-    description:
-      "Generate unlimited Gmail aliases to organize your inbox and protect your privacy",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Gmail Alias Generator",
-    description: "Create unlimited Gmail aliases instantly",
   },
 };
 
@@ -61,7 +50,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${outfit.variable} antialiased font-sans bg-background text-foreground tracking-wide`}
       >
         {children}
       </body>

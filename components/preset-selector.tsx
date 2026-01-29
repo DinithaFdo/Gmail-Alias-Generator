@@ -16,43 +16,37 @@ export function PresetSelector({
   onSelect,
 }: PresetSelectorProps) {
   return (
-    <div className="space-y-3">
-      <label className="text-sm font-medium text-foreground">
-        Choose a preset category
-      </label>
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
+      {presets.map((preset, index) => {
+        const isSelected = selectedId === preset.id;
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-        {presets.map((preset, index) => (
+        return (
           <motion.button
             key={preset.id}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.05 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => onSelect(preset.id)}
             className={cn(
-              "relative p-4 rounded-2xl border-2 transition-all duration-300",
-              "flex flex-col items-center gap-2",
-              "hover:shadow-lg hover:shadow-primary/10",
-              selectedId === preset.id
-                ? "border-primary bg-primary/5 shadow-md shadow-primary/20"
-                : "border-border hover:border-primary/50 bg-card"
+              "relative px-3 py-2 rounded-lg border text-left transition-all duration-300",
+              "flex flex-col gap-1 items-start",
+              isSelected
+                ? "bg-primary/20 border-primary shadow-[0_0_15px_-5px_var(--primary)]"
+                : "bg-white/5 border-white/5 hover:bg-white/10 hover:border-white/20"
             )}
           >
-            <span className="text-2xl">{preset.icon}</span>
-            <span className="text-sm font-medium">{preset.label}</span>
-
-            {selectedId === preset.id && (
-              <motion.div
-                layoutId="preset-indicator"
-                className="absolute inset-0 rounded-2xl border-2 border-primary"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
+            <span className="text-xl mb-1">{preset.icon}</span>
+            <span className={cn(
+              "text-[10px] font-mono uppercase tracking-widest",
+              isSelected ? "text-primary-foreground" : "text-muted-foreground"
+            )}>
+              {preset.label}
+            </span>
           </motion.button>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 }
